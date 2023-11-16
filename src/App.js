@@ -1,23 +1,47 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+
+import VERB_DB from "./utils/verbs_db";
+import Conjugation from "./pages/verbs/verb_rules";
+
+
+/**
+ * @type {Form}
+ * @return {String}
+ */
+function printForm(form) {
+  return `${form.japanese} (${form.romanji})`
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="ui container" style={{padding: '1em'}}>
+      <table className="ui selectable celled table">
+        <thead>
+          <tr>
+            <th>English</th>
+            <th>Dictionary</th>
+            <th>Present</th>
+            <th>Present Negative</th>
+          </tr>
+        </thead>
+        <tbody>
+          {VERB_DB.map(
+            /** @type {Verb} */ (verb) => {
+              let dictionary = verb.dictionary;
+              let present = Conjugation.present(verb);
+              let presentNegative = Conjugation.presentNegative(verb);
+              return (<tr key={dictionary.english}>
+                <td>{dictionary.english}</td>
+                <td>{printForm(dictionary)}</td>
+                <td>{printForm(present)}</td>
+                <td>{printForm(presentNegative)}</td>
+              </tr>
+                );
+              },
+              )}
+        </tbody>
+      </table>
     </div>
   );
 }
