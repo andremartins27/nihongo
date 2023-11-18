@@ -13,7 +13,7 @@
 	}
 }
 
-body {
+body, #root {
 	background-color: #282c34;
 	color: white;
 }
