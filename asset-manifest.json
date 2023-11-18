@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/nihongo/static/css/main.635c93e1.css",
-    "main.js": "/nihongo/static/js/main.7b9d2104.js",
+    "main.css": "/nihongo/static/css/main.df4f2cad.css",
+    "main.js": "/nihongo/static/js/main.f589287f.js",
     "static/js/787.e7c98065.chunk.js": "/nihongo/static/js/787.e7c98065.chunk.js",
     "index.html": "/nihongo/index.html",
-    "main.635c93e1.css.map": "/nihongo/static/css/main.635c93e1.css.map",
-    "main.7b9d2104.js.map": "/nihongo/static/js/main.7b9d2104.js.map",
+    "main.df4f2cad.css.map": "/nihongo/static/css/main.df4f2cad.css.map",
+    "main.f589287f.js.map": "/nihongo/static/js/main.f589287f.js.map",
     "787.e7c98065.chunk.js.map": "/nihongo/static/js/787.e7c98065.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.635c93e1.css",
-    "static/js/main.7b9d2104.js"
+    "static/css/main.df4f2cad.css",
+    "static/js/main.f589287f.js"
   ]
 }
