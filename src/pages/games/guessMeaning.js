@@ -61,7 +61,7 @@ export default function GuessMeaning() {
 	}
 	
 	function isCorrect() {
-		return word.english.includes(guess);
+		return guess !== '' && word.english.includes(guess);
 	}
 
 	function handleEnter(e) {
@@ -114,7 +114,7 @@ export default function GuessMeaning() {
 						<CardHeader/>
 						<div className="description">
 							<div className="ui fluid input">
-								<input type="text" disabled={word===null}
+								<input type="text" disabled={ word === null || guessed}
 									onChange={e => setGuess(e.target.value)} value={guess}
 									onKeyDown={handleEnter}
 									></input>
