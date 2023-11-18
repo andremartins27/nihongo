@@ -57,10 +57,7 @@ function present_U(verb) {
   let sylableRomanji = Hiragana.findRomanji(sylable);
 
   let jp =
-    dictionary.japanese.slice(
-      0,
-      dictionary.japanese.length - 1,
-    ) +
+    dictionary.japanese.slice(0, dictionary.japanese.length - 1) +
     column.i.japanese +
     "ます";
   let rmj =
@@ -96,10 +93,7 @@ function presentNegative_U(verb) {
   let sylableRomanji = Hiragana.findRomanji(sylable);
 
   let jp =
-    dictionary.japanese.slice(
-      0,
-      dictionary.japanese.length - 1,
-    ) +
+    dictionary.japanese.slice(0, dictionary.japanese.length - 1) +
     column.i.japanese +
     "ません";
   let rmj =
@@ -139,15 +133,9 @@ function present_Irregular(verb) {
       : "kimasu";
 
   let jp =
-    dictionary.japanese.slice(
-      0,
-      dictionary.japanese.length - 2,
-    ) + toAddJP;
+    dictionary.japanese.slice(0, dictionary.japanese.length - 2) + toAddJP;
   let rmj =
-    dictionary.romanji.slice(
-      0,
-      dictionary.romanji.length - 4,
-    ) + toAddRMJ;
+    dictionary.romanji.slice(0, dictionary.romanji.length - 4) + toAddRMJ;
 
   return new Form(jp, rmj, dictionary.english);
 }
@@ -178,15 +166,9 @@ function presentNegative_Irregular(verb) {
       : "kimasen";
 
   let jp =
-    dictionary.japanese.slice(
-      0,
-      dictionary.japanese.length - 2,
-    ) + toAddJP;
+    dictionary.japanese.slice(0, dictionary.japanese.length - 2) + toAddJP;
   let rmj =
-    dictionary.romanji.slice(
-      0,
-      dictionary.romanji.length - 4,
-    ) + toAddRMJ;
+    dictionary.romanji.slice(0, dictionary.romanji.length - 4) + toAddRMJ;
 
   return new Form(jp, rmj, dictionary.english);
 }

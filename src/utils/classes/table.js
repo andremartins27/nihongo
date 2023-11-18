@@ -92,7 +92,7 @@ export class Table {
    * @type Column
    */
   k;
-  
+
   /**
    * @type Column
    */

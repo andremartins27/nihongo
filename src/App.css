@@ -30,3 +30,40 @@ body {
 		transform: rotate(360deg);
 	}
 }
+
+.ui.table thead tr:first-child > th {
+	position: sticky !important;
+	top: 0;
+	z-index: 2;
+}
+
+/* red with opacity */
+.red-opaque {
+	background-color: rgba(255, 0, 0, 0.2) !important;
+}
+
+/* green with opacity */
+.green-opaque {
+	background-color: rgba(0, 255, 0, 0.2) !important;
+}
+
+
+/* blue with opacity */
+.blue-opaque {
+	background-color: rgba(0, 0, 255, 0.2) !important;
+}
+
+.red-opaque.label {
+	border-color: rgba(255, 0, 0, 0.2) !important;
+	color: #fff !important
+}
+
+.green-opaque.label {
+	border-color: rgba(0, 255, 0, 0.2) !important;
+	color: #fff !important
+}
+
+.blue-opaque.label {
+	border-color: rgba(0, 0, 255, 0.2) !important;
+	color: #fff !important
+}

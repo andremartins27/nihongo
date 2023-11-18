@@ -440,6 +440,24 @@ const VERB_DB = [
       english: "to bring (a thing)",
     },
   },
+  {
+    type: "u",
+    particle: "に",
+    dictionary: {
+      japanese: "つく",
+      romanji: "tsuku",
+      english: "to arrive",
+    },
+  },
+  {
+    type: "u",
+    particle: "を",
+    dictionary: {
+      japanese: "わたる",
+      romanji: "wataru",
+      english: "to cross",
+    },
+  },
 ];
 
 export default VERB_DB;
