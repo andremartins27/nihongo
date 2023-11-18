@@ -1,7 +1,8 @@
 import VERB_DB from "../../utils/verbs_db";
 import {useState, useRef} from "react";
 
-const maxSize = VERB_DB.length;
+const verbArray = VERB_DB;
+const maxSize = verbArray.length;
 function randomNumber() {
 	return Math.floor(Math.random() * maxSize);
 }
@@ -31,18 +32,17 @@ export default function GuessMeaning() {
 	const inputRef = useRef(null);
 	const [usedIndexes, setUsedIndexes] = useState([]);
 	
-	/** @type [number]*/	function randomWord(){
-		if (maxSize === usedIndexes.length) {
-			setUsedIndexes([]);
-			setGame(new GameState());
-		}
+	/** @type [number]*/
+	function randomWord(){
+		let aux = isFinished() ? [] : usedIndexes;
 		
 		let idx = randomNumber();
-		while (usedIndexes.includes(idx)) {
+		while (aux.includes(idx)) {
 			idx = randomNumber();
 		}
-		setUsedIndexes([...usedIndexes, idx]);
-		return VERB_DB[randomNumber()].dictionary;
+
+		setUsedIndexes([...aux, idx]);
+		return verbArray[idx].dictionary;
 	}
 	
 	function guessWord() {
@@ -59,12 +59,19 @@ export default function GuessMeaning() {
 	function nextWord() {
 		setGuessed(false);
 		setGuess('');
+		if (isFinished()) {
+			setGame(new GameState());
+		}
 		setWord(randomWord());
 		inputRef.current.focus()
 	}
 	
 	function isCorrect() {
 		return guess !== '' && isMatch(word.english, guess);
+	}
+
+	function isFinished() {
+		return game.correct + game.wrong === game.total;
 	}
 
 	function handleEnter(e) {
@@ -85,8 +92,8 @@ export default function GuessMeaning() {
 		if (guessed) {
 			return (
 				<div className={`ui ${isCorrect() ? 'green-opaque' : 'red-opaque'} bottom attached button`} onClick={nextWord}>
-					<i className={`icon ${isCorrect() ? 'check' : 'x'}`}></i>
-					Next
+					<i className={`icon ${isCorrect() || isFinished() ? 'check' : 'x'}`}></i>
+					{isFinished() ? 'New Game' : 'Next'}
 				</div>
 			);
 		} else if (word !== null) {
