@@ -21,6 +21,9 @@ function Menu() {
         <NavLink className={getClass()} to="/games/guess-meaning">
           Guess Meaning
         </NavLink>
+        <NavLink className={getClass()} to="/games/present-conjugation">
+          Present Conjugation
+        </NavLink>
       </div>
     </div>
   );

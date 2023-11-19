@@ -67,3 +67,19 @@ body, #root {
 	border-color: rgba(0, 0, 255, 0.2) !important;
 	color: #fff !important
 }
+
+/* red with half opacity */
+.red-half {
+	background-color: rgba(255, 0, 0, 0.5) !important;
+}
+
+/* green with half opacity */
+.green-half {
+	background-color: rgba(0, 255, 0, 0.5) !important;
+}
+
+
+/* blue with half opacity */
+.blue-half {
+	background-color: rgba(0, 0, 255, 0.5) !important;
+}

@@ -1,11 +1,11 @@
 import {useState} from "react";
 import Questionaire from "../utils/classes/questionaire";
 
-function StartGame({finished, onStart}) {
+function StartGame({onStart}) {
 	return (
 		<div className="ui centered card">
 			<div className="ui bottom attached button" onClick={onStart}>
-				{finished ? 'New Game' : 'Start'}
+				Start
 			</div>
 		</div>
 		);
@@ -41,7 +41,7 @@ function QuestionGuess({question, onGuess}) {
 		);
 }
 
-function QuestionResponse({guess, response, correct, nextQuestion}) {
+function QuestionResponse({guess, response, correct, nextQuestion, finished}) {
 	const [ currGuess, setCurrGuess] = useState(/** @type {String}*/guess);
 	
 	function handleEnter(e) {
@@ -52,7 +52,7 @@ function QuestionResponse({guess, response, correct, nextQuestion}) {
 	
 	return (
 		<div className="ui centered card">
-			<div className="content">
+			<div className={`${correct ? 'green-half': 'red-half'} content`}>
 				<div className="header">
 					{response}
 				</div>
@@ -63,10 +63,10 @@ function QuestionResponse({guess, response, correct, nextQuestion}) {
 					</div>
 				</div>
 			</div>
-			<div className={`ui ${correct ? 'green-opaque': 'red-opaque'} bottom attached button`} onClick={nextQuestion}>
+			<div className={`ui ${correct ? 'green-half': 'red-half'} bottom attached button`} onClick={nextQuestion}>
 				<i className={`icon ${correct ? 'check' : 'x'}`}></i>
-				Next
-			</div>
+				{finished ? 'New Game' : 'Next'}
+		</div>
 		</div>
 		);
 }
@@ -94,13 +94,13 @@ export default function GuessingGame(questions, verifyGuess, questionProvider, r
 	function updateState() {
 		setGame(new Questionaire(game));
 	}
-	function isCorrect() {
-		return verifyGuess(game.question, currGuess)
+	function isCorrect(guess) {
+		return verifyGuess(game.question, guess ? guess : currGuess)
 	}
 	
 	function guessWord(guess) {
 		setCurrGuess(guess)
-		if (isCorrect()) {
+		if (isCorrect(guess)) {
 			game.correct++;
 		} else {
 			game.wrong++;
@@ -127,12 +127,13 @@ export default function GuessingGame(questions, verifyGuess, questionProvider, r
 	}
 	
 	function QuestionOrResponse(g) {
-		if (g !== null && !g.isFinished()) {
+		if (g !== null) {
 			return  g.guessed ?
-					<QuestionResponse guess={currGuess} response={responseProvider(g.question)} correct={isCorrect()} nextQuestion={nextWord}/> :
+					<QuestionResponse guess={currGuess} response={responseProvider(g.question)} correct={isCorrect()} finished={g.isFinished()}
+						nextQuestion={nextWord}/> :
 					<QuestionGuess question={questionProvider(g.question)} onGuess={guessWord}/>
 		} else {
-			return <></>
+			return <StartGame onStart={newGame}/>
 		}
 	}
 	
@@ -141,7 +142,6 @@ export default function GuessingGame(questions, verifyGuess, questionProvider, r
 		<div className="ui one column stackable center aligned page grid">
 			<div className="column twelve wide">
 				<GameStatus game={game}/>
-				{game === null || game.isFinished() ? <StartGame finished={game !== null && game.isFinished()} onStart={newGame}/> : <></>}
 				{QuestionOrResponse(game)}
 			</div>
 		</div>
