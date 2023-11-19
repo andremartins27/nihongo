@@ -14,6 +14,9 @@ export default function GuessConjugation() {
 	 * @param {String} guess
    */
 	function verifyGuess(question, guess) {
+		if (guess === null || guess === '') {
+			return false;
+		}
 		let present = Conjugation.present(question);
 		return isMatch(present.japanese, guess) || isMatch(present.romanji, guess);
 	}

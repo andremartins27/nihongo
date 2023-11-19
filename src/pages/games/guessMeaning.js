@@ -13,6 +13,9 @@ export default function GuessMeaning() {
 	 * @param {String} guess
    */
 	function verifyGuess(question, guess) {
+		if (guess === null || guess === '') {
+			return false;
+		}
 		return isMatch(question.english, guess)
 	}
 

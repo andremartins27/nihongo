@@ -33,7 +33,7 @@ function QuestionGuess({question, onGuess}) {
 					</div>
 				</div>
 			</div>
-			<div className="ui bottom attached button" onClick={() => onGuess(guess)}>
+			<div className="ui bottom attached button" onClick={() => {if(guess !== '') {onGuess(guess)}}}>
 				<i className="question icon"></i>
 				Guess
 			</div>
