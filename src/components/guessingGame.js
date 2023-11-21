@@ -91,7 +91,7 @@ function GameStatus({game}) {
 		</div>)
 }
 
-export default function GuessingGame(questions, verifyGuess, questionProvider, responseProvider) {
+export default function GuessingGame({questions, verifyGuess, questionProvider, responseProvider}) {
 	const [/** @type {Questionaire} */ game, setGame] = useState(null);
 	const [/** @type {Questionaire} */ currGuess, setCurrGuess] = useState('');
 	

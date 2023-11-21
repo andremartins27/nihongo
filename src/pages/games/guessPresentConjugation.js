@@ -36,6 +36,14 @@ export default function GuessConjugation() {
 		return (<>{present.japanese} ({present.romanji})</>);
 	}
 
-	return GuessingGame(verbArray, verifyGuess, getQuestion, getResponse);
-
+	return (
+		<>
+		<div className="ui segment">
+			<p></p>
+		</div>
+		<div>
+			<GuessingGame questions={verbArray} verifyGuess={verifyGuess} questionProvider={getQuestion} responseProvider={getResponse} />
+		</div>
+		</>
+		);
 }

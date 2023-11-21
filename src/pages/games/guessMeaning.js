@@ -33,6 +33,16 @@ export default function GuessMeaning() {
 		return (<>{question.english}</>)
 	}
 	
-	return GuessingGame(verbArray, verifyGuess, getQuestion, getResponse);
+	//return GuessingGame(verbArray, verifyGuess, getQuestion, getResponse);
+	return(
+		<>
+			<div className="ui segment">
+				<p></p>
+			</div>
+			<div>
+				<GuessingGame questions={verbArray} verifyGuess={verifyGuess} questionProvider={getQuestion} responseProvider={getResponse} />
+			</div>
+		</>
+		);
 	
 }
