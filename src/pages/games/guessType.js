@@ -34,8 +34,11 @@ export default function GuessType() {
 
   return (
     <>
-      <div className='ui segment'>
-        <p></p>
+		<div className='ui one column stackable center aligned page grid'>
+			<div className='column twelve wide'>
+        <p>Write the type of the Verb.</p>
+				<p>Use: u, ru or irregular</p>
+      </div>
       </div>
       <div>
         <GuessingGame

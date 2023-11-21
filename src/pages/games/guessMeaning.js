@@ -39,8 +39,10 @@ export default function GuessMeaning() {
   //return GuessingGame(verbArray, verifyGuess, getQuestion, getResponse);
   return (
     <>
-      <div className='ui segment'>
-        <p></p>
+		<div className='ui one column stackable center aligned page grid'>
+			<div className='column twelve wide'>
+        <p>Write in english the meaning of the verb</p>
+      </div>
       </div>
       <div>
         <GuessingGame

@@ -28,7 +28,7 @@ function Menu() {
           className={getClass()}
           to='/games/guess-meaning'
         >
-          Guess Meaning
+          Verb Meaning
         </NavLink>
         <NavLink
           className={getClass()}

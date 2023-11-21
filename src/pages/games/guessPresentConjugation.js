@@ -45,8 +45,10 @@ export default function GuessConjugation() {
 
   return (
     <>
-      <div className='ui segment'>
-        <p></p>
+		<div className='ui one column stackable center aligned page grid'>
+			<div className='column twelve wide'>
+        <p>Write with hiragana or romanji the conjungation of the verb in the present tense</p>
+      </div>
       </div>
       <div>
         <GuessingGame
