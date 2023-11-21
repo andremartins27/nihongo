@@ -1,4 +1,4 @@
-import { randomNumber } from "../functions";
+import { randomNumber } from '../functions';
 
 export default class Questionaire {
   correct;
@@ -7,7 +7,7 @@ export default class Questionaire {
   /** @type []*/
   questions;
   question;
-  
+
   guessed;
 
   /** @type [number]*/
@@ -35,7 +35,6 @@ export default class Questionaire {
 
       this.usedQuestionsIdx = [];
     }
-    
   }
   isFinished() {
     return this.correct + this.wrong === this.questions.length;

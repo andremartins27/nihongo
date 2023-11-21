@@ -1,4 +1,4 @@
-import { JapaneseForm } from "./form";
+import { JapaneseForm } from './form';
 
 export class Column {
   /**
