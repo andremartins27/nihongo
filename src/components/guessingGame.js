@@ -13,9 +13,13 @@ function StartGame({onStart}) {
 
 function QuestionGuess({question, onGuess}) {
 	const [guess, setGuess] = useState('');
+	
+	function getGuess() {
+		return guess.trim();
+	}
 	function handleEnter(e) {
-		if (e.key === 'Enter' && guess !== '') {
-			onGuess(guess)
+		if (e.key === 'Enter' && getGuess() !== '') {
+			onGuess(getGuess())
 		}
 	}
 	
@@ -33,7 +37,7 @@ function QuestionGuess({question, onGuess}) {
 					</div>
 				</div>
 			</div>
-			<div className="ui bottom attached button" onClick={() => {if(guess !== '') {onGuess(guess)}}}>
+			<div className="ui bottom attached button" onClick={() => {if(guess !== '') {onGuess(getGuess())}}}>
 				<i className="question icon"></i>
 				Guess
 			</div>

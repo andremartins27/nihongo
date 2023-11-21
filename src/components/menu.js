@@ -24,6 +24,9 @@ function Menu() {
         <NavLink className={getClass()} to="/games/present-conjugation">
           Present Conjugation
         </NavLink>
+        <NavLink className={getClass()} to="/games/guess-type">
+          Verb Type
+        </NavLink>
       </div>
     </div>
   );
