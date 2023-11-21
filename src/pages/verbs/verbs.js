@@ -38,6 +38,8 @@ function Verbs() {
             <th>Dictionary</th>
             <th>Present</th>
             <th>Present Negative</th>
+            <th>Past</th>
+            <th>Past Negative</th>
           </tr>
         </thead>
         <tbody>
@@ -48,6 +50,8 @@ function Verbs() {
               let dictionary = verb.dictionary;
               let present = Conjugation.present(verb);
               let presentNegative = Conjugation.presentNegative(verb);
+              let past = Conjugation.past(verb);
+              let pastNegative = Conjugation.pastNegative(verb);
               return (
                 <tr
                   key={dictionary.english}
@@ -57,6 +61,8 @@ function Verbs() {
                   <td>{printForm(dictionary)}</td>
                   <td>{printForm(present)}</td>
                   <td>{printForm(presentNegative)}</td>
+                  <td>{printForm(past)}</td>
+                  <td>{printForm(pastNegative)}</td>
                 </tr>
               );
             }

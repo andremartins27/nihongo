@@ -141,9 +141,35 @@ function presentNegative(verb) {
   }
 }
 
+/**
+ * @param {Verb} verb
+ * @return {Form}
+ */
+function past(verb) {
+  let conj = present(verb);
+
+  let jp = conj.japanese.slice(0, conj.japanese.length - 2);
+  let rmj = conj.romanji.slice(0, conj.romanji.length - 4);
+  return new Form(jp + 'ました', rmj + 'mashita', conj.english)
+}
+
+/**
+ * @param {Verb} verb
+ * @return {Form}
+ */
+function pastNegative(verb) {
+  let conj = present(verb);
+
+  let jp = conj.japanese.slice(0, conj.japanese.length - 2);
+  let rmj = conj.romanji.slice(0, conj.romanji.length - 4);
+  return new Form(jp + 'ませんでした', rmj + 'masendeshita', conj.english)
+}
+
 const Conjugation = {
   present,
-  presentNegative
+  presentNegative,
+  past,
+  pastNegative
 };
 
 export default Conjugation;
