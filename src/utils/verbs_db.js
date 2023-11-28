@@ -102,7 +102,7 @@ const VERB_DB = [
     type: 'irregular',
     particle: 'を',
     dictionary: {
-      japanese: 'べんじょする',
+      japanese: 'べんきょする',
       romanji: 'benkyosuru',
       english: 'to study'
     }

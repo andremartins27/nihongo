@@ -7,6 +7,7 @@ import Layout from "./pages/layout";
 import GuessMeaning from "./pages/games/guessMeaning";
 import GuessPresentConjugation from "./pages/games/guessPresentConjugation";
 import GuessType from "./pages/games/guessType";
+import GuessVerb from "./pages/games/guessVerb";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route index element={<Home />} />
           <Route index path="/verbs" element={<Verbs />} />
           <Route path="/games/guess-meaning" element={<GuessMeaning />} />
+          <Route path="/games/guess-verb" element={<GuessVerb />} />
           <Route path="/games/present-conjugation" element={<GuessPresentConjugation />} />
           <Route path="/games/guess-type" element={<GuessType />} />
           <Route path="*" element={<NoPage />} />
